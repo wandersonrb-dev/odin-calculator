@@ -60,7 +60,7 @@ button {
   padding: 20px;
   border-radius: 6px;
   border: 1px solid rgb(234, 227, 219);
-  box-shadow: 0 4px 1px 0px rgba(234, 227, 219, 0.75);
+  box-shadow: 0 0 0 2px rgba(234, 227, 219, 0.75);
   color: #4D4E5A;
   font-size: 28px;
   font-weight: bold;
@@ -68,9 +68,17 @@ button {
 }
 
 button:hover {
-  background: rgba(234, 227, 219, 0.85);
+  background: rgba(234, 227, 219, 0.9);
   transition-duration: 0.5s;
   /* border: none */
+}
+
+button:active,
+#delete:active,
+#reset:active,
+#equal:active {
+  box-shadow: none;
+  transition-duration: 0.2ms;
 }
 
 #delete,
@@ -79,7 +87,7 @@ button:hover {
   background: #647299;
   color: #fff;
   border-color: #647299;
-  box-shadow: 0 4px 1px 0px rgba(65, 78, 113, 0.85);
+  box-shadow: 0 0 0 2px rgba(65, 78, 113, 0.85);
 }
 
 #delete:hover,
@@ -91,7 +99,7 @@ button:hover {
   background: #D13F30;
   color: #fff;
   border-color: #D13F30;
-  box-shadow: 0 4px 1px 0px rgba(143, 35, 22, 0.75);
+  box-shadow: 0 0 0 2px rgba(143, 35, 22, 0.75);
 }
 
 #equal:hover {
