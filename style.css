@@ -10,3 +10,15 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: #3B4664;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  margin-top: 47px;
+  flex: 1;
+}
