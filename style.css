@@ -22,3 +22,9 @@ body {
   margin-top: 47px;
   flex: 1;
 }
+
+h1 {
+  font-size: 46px;
+  color: #fff;
+  margin-bottom: 30px;
+}
