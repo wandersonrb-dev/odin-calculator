@@ -18,4 +18,10 @@ function division(num1, num2) {
     return num1 / num2;
 }
 
+function operate(num1, num2, operation) {
+    const result = operation(num1, num2);
+    if (result === null) return "Invalid operation";
+    return result;
+}
+
 main()
