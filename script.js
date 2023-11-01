@@ -18,10 +18,17 @@ function division(num1, num2) {
     return num1 / num2;
 }
 
-function operate(num1, num2, operation) {
-    const result = operation(num1, num2);
-    if (result === null) return "Invalid operation";
-    return result;
+function operate(num1, num2, operator) {
+    switch(operator) {
+        case '+':
+            return add(num1, num2);
+        case '-':
+            return subtraction(num1, num2);
+        case '/':
+            return division(num1, num2);
+        case 'x':
+            return multiplication(num1, num2);
+    }
 }
 
 main()
