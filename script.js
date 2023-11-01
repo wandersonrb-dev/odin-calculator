@@ -2,9 +2,19 @@ function main() {
     const operands = document.querySelectorAll('.operand');
     operands.forEach(operand => {
         operand.addEventListener('click', displayOperand);
-    })
+    });
+
+    const dotCharacter = document.querySelector('.dot');
+    dotCharacter.addEventListener('click', displayTheDotCharacter);
 }
 
+function displayTheDotCharacter(e) {
+    const display = document.querySelector('.display');
+    const patern = /\./
+    if (display.textContent.search(patern) === -1) {
+        display.textContent += e.target.textContent;
+    }
+}
 
 function displayOperand(e) {
     const display = document.querySelector('.display');
