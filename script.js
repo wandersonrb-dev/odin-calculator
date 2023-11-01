@@ -9,6 +9,14 @@ function main() {
 
     const deleteButton = document.querySelector('#delete');
     deleteButton.addEventListener('click', deleteCharacter);
+
+    const resetButton = document.querySelector('#reset');
+    resetButton.addEventListener('click', resetCalculator);
+}
+
+function resetCalculator(e) {
+    const display = document.querySelector('.display');
+    display.textContent = 0;
 }
 
 function deleteCharacter(e) {
