@@ -1,4 +1,18 @@
 function main() {
+    const operands = document.querySelectorAll('.operand');
+    operands.forEach(operand => {
+        operand.addEventListener('click', displayOperand);
+    })
+}
+
+
+function displayOperand(e) {
+    const display = document.querySelector('.display');
+    if (display.textContent === '0'){
+        display.textContent = e.target.textContent;
+    } else {
+        display.textContent += e.target.textContent;
+    }
 }
 
 function add(num1, num2) {
