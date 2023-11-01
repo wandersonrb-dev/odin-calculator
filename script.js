@@ -6,6 +6,20 @@ function main() {
 
     const dotCharacter = document.querySelector('.dot');
     dotCharacter.addEventListener('click', displayTheDotCharacter);
+
+    const deleteButton = document.querySelector('#delete');
+    deleteButton.addEventListener('click', deleteCharacter);
+}
+
+function deleteCharacter(e) {
+    const display = document.querySelector('.display');
+    characters = display.textContent.split('');
+    if (display.textContent.length === 1) {
+        display.textContent = 0;
+        return;
+    } 
+    characters.pop()
+    display.textContent = characters.join('');
 }
 
 function displayTheDotCharacter(e) {
