@@ -40,6 +40,8 @@ function displayTheDotCharacter(e) {
 
 function displayOperand(e) {
     const display = document.querySelector('.display');
+    const CHARACTERS_LIMIT = 15;
+    if (display.textContent.length === CHARACTERS_LIMIT) return;
     if (display.textContent === '0'){
         display.textContent = e.target.textContent;
     } else {
