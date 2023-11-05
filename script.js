@@ -4,6 +4,10 @@ function main() {
     const operands = document.querySelectorAll('.operand');
     operands.forEach(operand => {
         operand.addEventListener('click', (e) => {
+            const display = document.querySelector('.display');
+            if (display.textContent === 'Error') {
+                resetCalculator(equation);
+            }
             clearFirstOperandFromDisplay();
             displayOperand(e);
         });
@@ -16,7 +20,9 @@ function main() {
     deleteButton.addEventListener('click', deleteCharacter);
 
     const resetButton = document.querySelector('#reset');
-    resetButton.addEventListener('click', resetCalculator);
+    resetButton.addEventListener('click', () => {
+        resetCalculator(equation);
+    });
 
     const operators = document.querySelectorAll('button.operator');
     operators.forEach(operatorBtn => {
@@ -52,6 +58,10 @@ function main() {
 function calculateEquation(equation) {
     const display = document.querySelector('.display');
     let result = operate(equation[0], equation[2], equation[1]);
+    if (result === null) {
+        display.textContent = 'Error';
+        return;
+    }
     display.textContent = result;
     equation.push(result);
     equation.splice(0, 3);
@@ -72,9 +82,10 @@ function cleanScrean() {
     display.textContent = '';
 }
 
-function resetCalculator(e) {
+function resetCalculator(equation) {
     const display = document.querySelector('.display');
     display.textContent = 0;
+    equation.splice(0, 4);
 }
 
 function deleteCharacter(e) {
