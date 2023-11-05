@@ -41,6 +41,10 @@ function main() {
     equalButton.addEventListener('click', (e) => {
         const display = document.querySelector('.display');
         equation.push(Number(display.textContent));
+        if (equation.length !== 3) {
+            equation.splice(0, 2)
+            return
+        };
         calculateEquation(equation);
     });
 }
