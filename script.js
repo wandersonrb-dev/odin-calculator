@@ -27,6 +27,16 @@ function main() {
             operatorBtn.classList.add('selected');
         });
     });
+
+    const equalButton = document.querySelector('#equal');
+    equalButton.addEventListener('click', (e) => {
+        const display = document.querySelector('.display');
+        equation.push(Number(display.textContent));
+        let result = operate(equation[0], equation[2], equation[1]);
+        display.textContent = result;
+        equation.push(result);
+        equation.splice(0, 3);
+    });
 }
 
 function clearFirstOperandFromDisplay() {
