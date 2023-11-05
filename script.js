@@ -4,16 +4,9 @@ function main() {
     const operands = document.querySelectorAll('.operand');
     operands.forEach(operand => {
         operand.addEventListener('click', (e) => {
-            const operators = document.querySelectorAll('.operator');
-            operators.forEach(operator => {
-                if (operator.classList.contains('selected')) {
-                    cleanScrean()
-                    operator.classList.remove('selected');
-                }
-            })
-            displayOperand(e)
+            clearFirstOperandFromDisplay();
+            displayOperand(e);
         });
-
     });
 
     const dotCharacter = document.querySelector('.dot');
@@ -33,6 +26,16 @@ function main() {
             equation.push(operatorBtn.textContent);
             operatorBtn.classList.add('selected');
         });
+    });
+}
+
+function clearFirstOperandFromDisplay() {
+    const operators = document.querySelectorAll('.operator');
+    operators.forEach(operator => {
+        if (operator.classList.contains('selected')) {
+            cleanScrean();
+            operator.classList.remove('selected');
+        }
     });
 }
 
