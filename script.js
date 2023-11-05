@@ -1,7 +1,19 @@
 function main() {
+    const equation = [];
+    
     const operands = document.querySelectorAll('.operand');
     operands.forEach(operand => {
-        operand.addEventListener('click', displayOperand);
+        operand.addEventListener('click', (e) => {
+            const operators = document.querySelectorAll('.operator');
+            operators.forEach(operator => {
+                if (operator.classList.contains('selected')) {
+                    cleanScrean()
+                    operator.classList.remove('selected');
+                }
+            })
+            displayOperand(e)
+        });
+
     });
 
     const dotCharacter = document.querySelector('.dot');
@@ -12,6 +24,21 @@ function main() {
 
     const resetButton = document.querySelector('#reset');
     resetButton.addEventListener('click', resetCalculator);
+
+    const operators = document.querySelectorAll('button.operator');
+    operators.forEach(operatorBtn => {
+        operatorBtn.addEventListener('click', (e) => {
+            const display = document.querySelector('.display');
+            equation.push(Number(display.textContent));
+            equation.push(operatorBtn.textContent);
+            operatorBtn.classList.add('selected');
+        });
+    });
+}
+
+function cleanScrean() {
+    const display = document.querySelector('.display');
+    display.textContent = '';
 }
 
 function resetCalculator(e) {
