@@ -22,8 +22,17 @@ function main() {
     operators.forEach(operatorBtn => {
         operatorBtn.addEventListener('click', (e) => {
             const display = document.querySelector('.display');
-            equation.push(Number(display.textContent));
-            equation.push(operatorBtn.textContent);
+            if (!equation.length) {
+                equation.push(Number(display.textContent));
+                equation.push(operatorBtn.textContent);
+            } else if (equation.length == 1) {
+                equation.push(operatorBtn.textContent);
+            } else if (equation.length == 2) {
+                equation.push(Number(display.textContent));
+                calculateEquation(equation);
+                equation.push(operatorBtn.textContent);
+               
+            }
             operatorBtn.classList.add('selected');
         });
     });
@@ -32,11 +41,16 @@ function main() {
     equalButton.addEventListener('click', (e) => {
         const display = document.querySelector('.display');
         equation.push(Number(display.textContent));
-        let result = operate(equation[0], equation[2], equation[1]);
-        display.textContent = result;
-        equation.push(result);
-        equation.splice(0, 3);
+        calculateEquation(equation);
     });
+}
+
+function calculateEquation(equation) {
+    const display = document.querySelector('.display');
+    let result = operate(equation[0], equation[2], equation[1]);
+    display.textContent = result;
+    equation.push(result);
+    equation.splice(0, 3);
 }
 
 function clearFirstOperandFromDisplay() {
