@@ -1,10 +1,10 @@
 function main() {
     const equation = [];
+    const display = document.querySelector('.display');
     
     const operands = document.querySelectorAll('.operand');
     operands.forEach(operand => {
         operand.addEventListener('click', (e) => {
-            const display = document.querySelector('.display');
             if (display.textContent === 'Error') {
                 resetCalculator(equation);
             }
@@ -27,7 +27,6 @@ function main() {
     const operators = document.querySelectorAll('button.operator');
     operators.forEach(operatorBtn => {
         operatorBtn.addEventListener('click', (e) => {
-            const display = document.querySelector('.display');
             if (!equation.length) {
                 equation.push(Number(display.textContent));
                 equation.push(operatorBtn.textContent);
@@ -45,7 +44,6 @@ function main() {
 
     const equalButton = document.querySelector('#equal');
     equalButton.addEventListener('click', (e) => {
-        const display = document.querySelector('.display');
         equation.push(Number(display.textContent));
         if (equation.length !== 3) {
             equation.splice(0, 2)
