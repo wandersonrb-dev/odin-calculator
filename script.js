@@ -46,7 +46,7 @@ function main() {
     equalButton.addEventListener('click', (e) => {
         equation.push(Number(display.textContent));
         if (equation.length !== 3) {
-            equation.splice(0, 2)
+            equation.splice(0, equation.length)
             return
         };
         calculateEquation(equation);
